@@ -12,6 +12,8 @@ const char index_html[] PROGMEM = R"rawliteral(
   <p>Timer: <span id="current_time">...</span></p>
   <p>Weight: <span id="current_weight">...</span></p>
   <p>Push Button State: <span id="push_button_state">...</span></p>
+  
+  <p><a href="/statistics">Go to Statistics</a></p>
 
     <script>
       setInterval(() => {

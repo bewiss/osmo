@@ -6,6 +6,7 @@
 #include "component_display.h"
 #include "service.h"
 #include "index_html.h"
+#include "statistics_html.h"
 #include "scale.h"
 #include "component_push_button.h"
 // Declare the server object
@@ -45,6 +46,9 @@ void startWiFiAndServer(const char* ssid, const char* password) {
   // Define server routes
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
     request->send_P(200, "text/html", index_html, processor);
+  });
+  server.on("/statistics", HTTP_GET, [](AsyncWebServerRequest *request) {
+    request->send_P(200, "text/html", statistics_html);
   });
    server.on("/current_time", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(200, "text/plain", String(timer_current_time));
